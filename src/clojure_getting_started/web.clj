@@ -15,6 +15,13 @@
 (def db
   (env :database-url))
 
+
+(do
+  (println "Dropping names table...")
+  (db/drop-names-table db)
+  (println "Creating names table...")
+  (db/create-names-table db))
+
 (defn name-count []
   {:body (str "name count: "
               (:count (db/name-count db)))})
