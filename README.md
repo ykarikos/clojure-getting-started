@@ -7,17 +7,15 @@ This application support the [Getting Started with Clojure](https://devcenter.he
 
 ## Running Locally
 
-Make sure you have Clojure installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
+Make sure you have Leiningen installed.
 
 ```sh
-$ git clone https://github.com/heroku/clojure-getting-started.git
+$ git clone https://github.com/ykarikos/clojure-getting-started.git
 $ cd clojure-getting-started
-$ lein repl
-user=> (require 'clojure-getting-started.web)
-user=>(def server (clojure-getting-started.web/-main))
+$ lein ring server-headless
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:3000](http://localhost:3000/).
 
 ## Deploying to Heroku
 
@@ -36,4 +34,3 @@ or
 For more information about using Clojure on Heroku, see these Dev Center articles:
 
 - [Clojure on Heroku](https://devcenter.heroku.com/categories/clojure)
-
