@@ -6,7 +6,9 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.4.0"]
                  [ring/ring-jetty-adapter "1.4.0"]
-                 [environ "1.0.0"]]
+                 [environ "1.0.0"]
+                 [com.layerware/hugsql "0.4.8"]
+                 [org.postgresql/postgresql "42.2.1"]]
   :plugins [[lein-ring "0.8.13"]
             [environ/environ.lein "0.3.1"]]
   :ring {:handler clojure-getting-started.web/app}

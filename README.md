@@ -5,6 +5,13 @@ A barebones Clojure app, which can easily be deployed to Heroku.
 
 This application support the [Getting Started with Clojure](https://devcenter.heroku.com/articles/getting-started-with-clojure) article - check it out.
 
+## Configuration
+
+Environment variables
+
+- `PORT` the port for the web server
+- `DATABASE_URL` DB connection URI, e.g. `"postgresql://foo:bar@localhost:5432/test"`
+
 ## Running Locally
 
 Make sure you have Leiningen installed.
