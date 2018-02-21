@@ -3,6 +3,12 @@
             [clojure-getting-started.db :as db]
             [hiccup.core :as h]))
 
+(defn response [body]
+  {:status 200
+   :headers {"Content-Type" "text/html; charset=utf-8"}
+   :body body})
+
+
 (def db-uri
   (env :database-url))
 
@@ -18,7 +24,7 @@
     [:input {:type "submit" :value "Reset database"}]]))
 
 (defn front-page []
-  {:body
+  (response
    (h/html
      [:form {:method "POST"}
       [:p "Hello "
@@ -26,24 +32,24 @@
        "! "
        [:input {:type "submit"
                 :value "OK"}]]]
-     links)})
+     links)))
 
 (defn reset-database []
   (println "Dropping names table...")
   (db/drop-names-table db-uri)
   (println "Creating names table...")
   (db/create-names-table db-uri)
-  {:body
+  (response
    (h/html
     [:p "Database reset"]
-    links)})
+    links)))
 
 (defn input-name [name]
   (db/insert-name db-uri {:name name})
-  {:body
+  (response
    (h/html
     [:p "Hello " name "!"]
-    links)})
+    links)))
 
 (defn get-names []
   (->> db-uri
@@ -52,7 +58,7 @@
 
 (defn list-names []
   (let [name-count (-> db-uri (db/name-count) :count)]
-    {:body
+    (response
      (h/html
        (if (> name-count 0)
          [:div
@@ -62,4 +68,4 @@
            (for [name (get-names)]
              [:li name])]]
          [:p "No names"])
-       links)}))
+       links))))
