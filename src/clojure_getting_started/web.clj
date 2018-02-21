@@ -4,40 +4,24 @@
             [compojure.route :as route]
             [clojure.java.io :as io]
             [ring.adapter.jetty :as jetty]
+            [ring.middleware.params :refer [wrap-params]]
             [environ.core :refer [env]]
-            [clojure-getting-started.db :as db]))
+            [clojure-getting-started.html :as html]))
 
-(defn splash []
-  {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body "Hello world!"})
-
-(def db
-  (env :database-url))
-
-
-(do
-  (println "Dropping names table...")
-  (db/drop-names-table db)
-  (println "Creating names table...")
-  (db/create-names-table db))
-
-(defn name-count []
-  {:body (str "name count: "
-              (:count (db/name-count db)))})
-
-(defroutes app
+(defroutes app-routes
   (GET "/" []
-       (splash))
-  (GET "/name-count" []
-       (name-count))
+       (html/front-page))
+  (POST "/reset" []
+        (html/reset-database))
+  (POST "/" [name]
+        (html/input-name name))
+  (GET "/names" []
+       (html/list-names))
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
+
+(def app (wrap-params app-routes))
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
     (jetty/run-jetty (site #'app) {:port port :join? false})))
-
-;; For interactive development:
-;; (.stop server)
-;; (def server (-main))
