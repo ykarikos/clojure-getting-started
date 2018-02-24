@@ -9,3 +9,8 @@ pom.xml
 /target
 /.lein-repl-history
 /.nrepl-port
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
