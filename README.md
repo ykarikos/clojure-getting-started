@@ -1,7 +1,13 @@
 
 # clojure-getting-started
 
-A barebones Clojure app, which can easily be deployed to Heroku.  
+An example Clojure web app that
+* uses a Postgresql database via Hugsql
+* can be easily deployed to any cloud PaaS:
+ * [Heroku](https://www.heroku.com)
+ * [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
+ * [Azure Web Apps](https://azure.microsoft.com/en-us/services/app-service/web/)
+
 
 This application support the [Getting Started with Clojure](https://devcenter.heroku.com/articles/getting-started-with-clojure) article - check it out.
 
@@ -32,12 +38,19 @@ $ git push heroku master
 $ heroku open
 ```
 
-or
+## Deploying to AWS Elastic Beanstalk
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+```sh
+$ lein ring uberjar
+```
 
-## Documentation
+... TBD
 
-For more information about using Clojure on Heroku, see these Dev Center articles:
+## Deploying to Azure Web Apps
 
-- [Clojure on Heroku](https://devcenter.heroku.com/categories/clojure)
+```sh
+$ lein ring uberwar clojure-getting-started.war
+$ zip deploy.zip target/clojure-getting-started.war
+```
+
+Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`
