@@ -9,7 +9,6 @@
                  [ring/ring-core "1.6.3"]
                  [environ "1.0.0"]
                  [com.layerware/hugsql "0.4.8"]
-                 [org.clojure/tools.reader "1.2.1"]
                  [org.postgresql/postgresql "42.2.1"]
                  [hiccup "1.0.5"]]
   :plugins [[lein-ring "0.8.13"]]
