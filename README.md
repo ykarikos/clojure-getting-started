@@ -30,7 +30,7 @@ $ lein ring server-headless
 
 Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-## Deploying to Heroku
+## Deploying to [Heroku](https://www.heroku.com/)
 
 ```sh
 $ heroku create
@@ -38,22 +38,30 @@ $ git push heroku master
 $ heroku open
 ```
 
-## Deploying to AWS Elastic Beanstalk
+## Deploying to [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
 
+1. Configure [EB CLI to deploy an artifact](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html#eb-cli3-artifact)
+
+2. Run:
 ```sh
 $ lein ring uberjar
+$ eb deploy
 ```
 
-... TBD
+## Deploying to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
 
-## Deploying to Azure Web Apps
+1. Run:
 
 ```sh
-$ lein ring uberwar clojure-getting-started.war
-$ zip deploy.zip target/clojure-getting-started.war
+$ lein ring uberwar ROOT.war
+$ mkdir webapps
+$ cp target/ROOT.war webapps
+$ zip -r deploy.zip webapps
 ```
 
-Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`
+2. Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`.
+
+3. In the deployment portal, remove `webapps/ROOT` directory.
 
 ## Deploying to [Google App Engine](https://cloud.google.com/appengine/)
 

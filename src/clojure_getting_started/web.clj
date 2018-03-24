@@ -12,7 +12,7 @@
   (GET "/" [reset]
        (html/front-page reset))
   (GET "/date" []
-       {:body (str (java.util.Date.))})
+       (html/current-date))
   (POST "/reset" []
         (html/reset-database))
   (POST "/" [name]
