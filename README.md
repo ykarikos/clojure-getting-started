@@ -51,7 +51,6 @@ $ eb deploy
 ## Deploying to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
 
 1. Run:
-
 ```sh
 $ lein ring uberwar ROOT.war
 $ mkdir webapps
@@ -62,3 +61,20 @@ $ zip -r deploy.zip webapps
 2. Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`.
 
 3. In the deployment portal, remove `webapps/ROOT` directory.
+
+## Deploying to [Google App Engine](https://cloud.google.com/appengine/)
+
+1. Run
+```sh
+$ git checkout google-app-engine
+$ lein ring uberwar clojure-getting-started.war
+$ unzip -d war target/clojure-getting-started.war
+```
+
+2. Edit `DATABASE_URL` environment variable in `war/WEB-INF/appengine-web.xml`: add `$DB_NAME`, `$CONNECTION_NAME`, `$DB_USER` and `$DB_PWD`.
+
+3. Run
+```sh
+$ appcfg.sh -A app-id -V app-version update war
+$ appcfg.sh -A app-id -V app-version migrate_traffic war
+```
