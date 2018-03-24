@@ -54,3 +54,17 @@ $ zip deploy.zip target/clojure-getting-started.war
 ```
 
 Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`
+
+## Deploying to [Google App Engine](https://cloud.google.com/appengine/)
+
+```sh
+$ lein ring uberwar clojure-getting-started.war
+$ unzip -d war target/clojure-getting-started.war
+```
+
+Edit `DATABASE_URL` environment variable in `war/WEB-INF/appengine-web.xml`: add `$DB_NAME`, `$CONNECTION_NAME`, `$DB_USER` and `$DB_PWD`.
+
+```sh
+$ appcfg.sh -A app-id -V app-version update war
+$ appcfg.sh -A app-id -V app-version migrate_traffic war
+```

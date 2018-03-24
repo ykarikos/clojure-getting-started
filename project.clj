@@ -10,6 +10,7 @@
                  [environ "1.0.0"]
                  [com.layerware/hugsql "0.4.8"]
                  [org.postgresql/postgresql "42.2.1"]
+                 [com.google.cloud.sql/postgres-socket-factory "1.0.5"]
                  [hiccup "1.0.5"]]
   :plugins [[lein-ring "0.8.13"]]
   :ring {:handler clojure-getting-started.web/app}

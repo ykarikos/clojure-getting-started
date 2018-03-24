@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+	<runtime>java8</runtime>
+  <threadsafe>true</threadsafe>
+  <env-variables>
+     <env-var name="DATABASE_URL" value="postgresql://google/$DB_NAME?useSSL=false&amp;socketFactoryArg=$CONNECTION_NAME&amp;socketFactory=com.google.cloud.sql.postgres.SocketFactory&amp;user=$DB_USER&amp;password=$DB_PWD" />
+  </env-variables>
+</appengine-web-app>
