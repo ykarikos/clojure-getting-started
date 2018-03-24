@@ -50,7 +50,7 @@
   (db/create-names-table db-uri)
   (response
    (h/html
-    [:p "Database reset"]
+    [:p "Database reset."]
     links)))
 
 (defn input-name [name]
@@ -78,3 +78,9 @@
              [:li name])]]
          [:p "No names"])
        links))))
+
+(defn current-date []
+ (response
+  (h/html
+   [:p (str "It is now " (java.util.Date.))]
+   links)))
