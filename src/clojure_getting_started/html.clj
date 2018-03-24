@@ -18,21 +18,30 @@
     [:a {:href "/names"}
      "List names"]]
    [:p
+    [:a {:href "/date"}
+     "Current date and time"]]
+   [:p
     [:a {:href "/"}
-     "Front page"]]
+     "Front page"]]))
+
+
+(def reset-form
+  (h/html
    [:form {:method "POST" :action "/reset"}
     [:input {:type "submit" :value "Reset database"}]]))
 
-(defn front-page []
+(defn front-page [reset]
   (response
    (h/html
+     [:h1 "λ Clojure & PostgreSQL PaaS test app"]
      [:form {:method "POST"}
       [:p "Hello "
        [:input {:name "name"}]
        "! "
        [:input {:type "submit"
                 :value "OK"}]]]
-     links)))
+     links
+     (when reset reset-form))))
 
 (defn reset-database []
   (println "Dropping names table...")
