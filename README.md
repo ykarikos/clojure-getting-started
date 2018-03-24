@@ -46,11 +46,17 @@ $ lein ring uberjar
 
 ... TBD
 
-## Deploying to Azure Web Apps
+## Deploying to [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)
+
+1. Run:
 
 ```sh
-$ lein ring uberwar clojure-getting-started.war
-$ zip deploy.zip target/clojure-getting-started.war
+$ lein ring uberwar ROOT.war
+$ mkdir webapps
+$ cp target/ROOT.war webapps
+$ zip -r deploy.zip webapps
 ```
 
-Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`
+2. Upload the zip file to `https://<your-app-name>.scm.azurewebsites.net/ZipDeploy`.
+
+3. In the deployment portal, remove `webapps/ROOT` directory.
