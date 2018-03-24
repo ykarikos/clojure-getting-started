@@ -13,6 +13,7 @@
                  [hiccup "1.0.5"]]
   :plugins [[lein-ring "0.8.13"]]
   :min-lein-version "2.0.0"
+  :uberjar-name "clojure-getting-started-standalone.jar"
   :ring {:handler clojure-getting-started.web/app}
   :aot :all
   :profiles
