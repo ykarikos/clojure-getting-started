@@ -4,13 +4,13 @@
 An example Clojure web app that
 * uses a Postgresql database via Hugsql
 * can be easily deployed to any cloud PaaS:
- * [Heroku](https://www.heroku.com)
- * [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
- * [Azure App Services](https://azure.microsoft.com/en-us/services/app-service/web/)
- * [Google App Engine](https://cloud.google.com/appengine/)
+  * [Heroku](https://www.heroku.com)
+  * [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
+  * [Azure App Services](https://azure.microsoft.com/en-us/services/app-service/web/)
+  * [Google App Engine](https://cloud.google.com/appengine/)
 
 
-This application support the [Getting Started with Clojure](https://devcenter.heroku.com/articles/getting-started-with-clojure) article - check it out.
+This application originates from Heroku's [Getting Started with Clojure](https://devcenter.heroku.com/articles/getting-started-with-clojure) article.
 
 ## Configuration
 
