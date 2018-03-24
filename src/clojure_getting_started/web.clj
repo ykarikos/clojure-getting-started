@@ -9,8 +9,10 @@
             [clojure-getting-started.html :as html]))
 
 (defroutes app-routes
-  (GET "/" []
-       (html/front-page))
+  (GET "/" [reset]
+       (html/front-page reset))
+  (GET "/date" []
+       {:body (str (java.util.Date.))})
   (POST "/reset" []
         (html/reset-database))
   (POST "/" [name]
