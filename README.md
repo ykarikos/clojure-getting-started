@@ -79,3 +79,12 @@ $ unzip -d war target/clojure-getting-started.war
 $ appcfg.sh -A app-id -V app-version update war
 $ appcfg.sh -A app-id -V app-version migrate_traffic war
 ```
+
+
+## License
+
+Licensed with [Eclipse Public License v1.0](http://www.eclipse.org/legal/epl-v10.html).
+
+## Thanks
+
+This project is a grateful recipient of the [Futurice Open Source sponsorship program](http://futurice.com/blog/sponsoring-free-time-open-source-activities?utm_source=github&utm_medium=spice).
